@@ -34,13 +34,13 @@
             </ul>
             <!-- Mobile BTN -->
             <div id="menu-mobile" class="search-mobile-btn">
-                <i class=" search-mobile-icon ti-menu">
+                <i class="search-mobile-icon ti-menu">
 
                 </i>
             </div>
             <!-- PC BTN -->
             <div class="search-btn">
-                <i class=" search-icon ti-search">
+                <i class="search-icon ti-search">
                 </i>
             </div>
         </div>
@@ -113,7 +113,7 @@
                                 <p class="section-place-sub">
                                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                                 </p>
-                                <button class="section-place-btn mobile-contact">
+                                <button class="section-place-btn mobile-contact" id="js-buy-ticket">
                                     Buy Tickets
                                 </button>
                             </div>
@@ -130,7 +130,7 @@
                                 <p class="section-place-sub">
                                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                                 </p>
-                                <button class="section-place-btn mobile-contact">
+                                <button class="section-place-btn mobile-contact" id="js-buy-ticket">
                                     Buy Tickets
                                 </button>
                             </div>
@@ -147,7 +147,7 @@
                                 <p class="section-place-sub">
                                     Praesent tincidunt sed tellus ut rutrum sed vitae justo.
                                 </p>
-                                <button class="section-place-btn mobile-contact">
+                                <button class="section-place-btn mobile-contact" id="js-buy-ticket">
                                     Buy Tickets
                                 </button>
                             </div>
@@ -209,6 +209,36 @@
             <p class="copyright">Code by <a href="https://www.facebook.com/LTV1603/"> Long Thành Vũ </a> </p>
         </div>
     </div>
+
+    <div class="modal">
+        <div class="modal-container">
+            <div class="modal-head">
+                <i class="ti-bag"></i>
+                Tickets
+            </div>
+            <div class="modal-close" id="js-close">
+                <i class="ti-close"></i>
+            </div>
+            <div class="modal-body">
+                <label for="" class="modal-label">
+                    <i class="ti-shopping-cart-full"></i>
+                    Tickets, $15 per person
+                </label>
+                <input type="text" placeholder="How Many ?">
+
+                <label for="" class="modal-label">
+                    <i class="ti-user"></i>
+                    Send To
+                </label>
+                <input type="text" placeholder="Enter Email">
+
+                <button id="buy-ticker">
+                    Buy <i class="ti-check"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- JS cho nút menu mobile -->
     <script>
         var header = document.getElementById('header');
@@ -241,6 +271,27 @@
                 }
             }
         }
+    </script>
+    <!-- JS cho nút buy tickets -->
+    <script>
+        const buyBtns       = document.querySelectorAll('#js-buy-ticket')
+        const modal         = document.querySelector('.modal')
+        const closeModal    = document.querySelector('#js-close')
+
+        function showBuy(){
+            modal.classList.add('modal-open')
+        }
+
+        function hideBuy(){
+            modal.classList.remove('modal-open')
+        }
+
+        for(const buyBtn of buyBtns){
+            buyBtn.addEventListener('click', showBuy)
+        }
+
+        closeModal.addEventListener('click', hideBuy)
+        
     </script>
 </body>
 </html>
